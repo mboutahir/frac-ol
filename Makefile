@@ -6,13 +6,13 @@
 #    By: mboutahi <mboutahi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/27 17:32:18 by mboutahi          #+#    #+#              #
-#    Updated: 2025/04/01 18:27:52 by mboutahi         ###   ########.fr        #
+#    Updated: 2025/04/03 02:08:03 by mboutahi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 
-SRC = main.c utils.c fractol_init.c map_scale.c math_utils.c render.c events.c
+SRC = main.c utils.c fractol_init.c map_scale.c render.c events.c
 
 CC = cc
 

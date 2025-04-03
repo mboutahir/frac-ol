@@ -6,7 +6,7 @@
 /*   By: mboutahi <mboutahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 20:41:20 by mboutahi          #+#    #+#             */
-/*   Updated: 2025/03/30 01:11:47 by mboutahi         ###   ########.fr       */
+/*   Updated: 2025/04/03 02:32:23 by mboutahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	data_init(t_fractol *fractol)
 static void	event_init(t_fractol *fractol)
 {
 	mlx_key_hook(fractol->mlx_window, key_handler, fractol);
-	 mlx_hook(fractol->mlx_window, 4, 0, mouse_scroll, fractol);
+	mlx_hook(fractol->mlx_window, 4, 0, mouse_scroll, fractol);
 	mlx_hook(fractol->mlx_window, 17, 0, close_handler, fractol); 
 }
 
@@ -41,20 +41,18 @@ void	fractol_init(t_fractol *fractol)
 	if (!(fractol->mlx_connection))
 		malloc_error();
 	fractol->mlx_window = mlx_new_window(fractol->mlx_connection,
-			width,
-			hight, fractol->name);
+			WIDTH,
+			HIGHT, fractol->name);
 	if (!(fractol->mlx_window))
 	{
-		// mlx_destroy_window(fractol->mlx_connection, fractol->mlx_window);
 		free(fractol->mlx_connection);
 		malloc_error();
 	}
 	fractol->img.img_ptr = mlx_new_image(fractol->mlx_connection,
-			width,
-			hight);
+			WIDTH,
+			HIGHT);
 	if (!(fractol->img.img_ptr))
 	{
-		mlx_destroy_image(fractol->mlx_connection, fractol->mlx_window);
 		mlx_destroy_window(fractol->mlx_connection, fractol->mlx_window);
 		free(fractol->mlx_connection);
 		malloc_error();

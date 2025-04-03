@@ -6,7 +6,7 @@
 /*   By: mboutahi <mboutahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 17:32:27 by mboutahi          #+#    #+#             */
-/*   Updated: 2025/03/30 00:20:26 by mboutahi         ###   ########.fr       */
+/*   Updated: 2025/04/03 02:27:23 by mboutahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static double	double_part(char *str)
 
 	pow = 1;
 	double_part = 0;
-	while(*str)
+	while (*str)
 	{
 		pow /= 10;
 		double_part = double_part + (*str++ - 48) * pow;
@@ -64,10 +64,7 @@ double	atoi_double(char *str)
 	double	fractional_part;
 
 	if (!str) 
-	{
-        fprintf(stderr, "Error: NULL string passed to atoi_double.\n");
-        exit(1);
-    }
+		exit(1);
 	j = 1;
 	int_part = 0;
 	fractional_part = 0;
@@ -81,11 +78,8 @@ double	atoi_double(char *str)
 	}
 	while (*str <= '9' && *str >= '0' && *str)
 		int_part = 10 * int_part +(*str++ - '0');
-	if(*str == '.')
+	if (*str == '.')
 		++str;
 	fractional_part = double_part(str);
 	return ((int_part + fractional_part) * j);
 }
-
-
-
