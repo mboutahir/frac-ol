@@ -6,7 +6,7 @@
 /*   By: mboutahi <mboutahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 17:32:15 by mboutahi          #+#    #+#             */
-/*   Updated: 2025/04/03 02:30:58 by mboutahi         ###   ########.fr       */
+/*   Updated: 2025/04/05 12:56:48 by mboutahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,12 @@
 # include "mlx.h"
 # include <unistd.h>
 # include <stdlib.h>
-# include <math.h>
 
-# define HIGHT	400
-# define WIDTH	400
+# define HIGHT	800
+# define WIDTH	800
 
 # define BLACK					0x000000
-# define WHITE					0xFFFFFF
-# define BLUE					0x0000FF
-# define GREEN					0x00FF00
-# define RED					0xFF0000
 # define FLUORESCENT_ORANGE		0xFFA500
-# define BRIGHT_YELLOW			0xFFFF00
-# define NEON_YELLOW			0xFFFF33
 
 typedef struct s_complex
 {

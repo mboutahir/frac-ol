@@ -6,13 +6,12 @@
 /*   By: mboutahi <mboutahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 20:41:20 by mboutahi          #+#    #+#             */
-/*   Updated: 2025/04/03 02:32:23 by mboutahi         ###   ########.fr       */
+/*   Updated: 2025/04/05 13:01:29 by mboutahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-//initialize /mlx /listenting events/ hooks data
 static void	malloc_error(void)
 {
 	perror("Problems with malloc");
@@ -44,17 +43,13 @@ void	fractol_init(t_fractol *fractol)
 			WIDTH,
 			HIGHT, fractol->name);
 	if (!(fractol->mlx_window))
-	{
-		free(fractol->mlx_connection);
 		malloc_error();
-	}
 	fractol->img.img_ptr = mlx_new_image(fractol->mlx_connection,
 			WIDTH,
 			HIGHT);
 	if (!(fractol->img.img_ptr))
 	{
 		mlx_destroy_window(fractol->mlx_connection, fractol->mlx_window);
-		free(fractol->mlx_connection);
 		malloc_error();
 	}
 }

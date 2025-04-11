@@ -6,7 +6,7 @@
 /*   By: mboutahi <mboutahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 22:36:48 by mboutahi          #+#    #+#             */
-/*   Updated: 2025/04/03 02:31:45 by mboutahi         ###   ########.fr       */
+/*   Updated: 2025/04/05 06:48:34 by mboutahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,6 @@ static void	mandel_julia(t_complex *z, t_complex *c, t_fractol *fractol)
 	}
 }
 
-static void	burning_ship(t_complex *z, t_fractol *fractol)
-{
-	if (ft_strncmp(fractol->name, "burning_ship", 0) == 1)
-	{
-		z->real = fabs(z->real);
-		z->imgnry = fabs(z->imgnry);
-	}
-}
-
 static void	handle_pixel(int x, int y, t_fractol *fractol)
 {
 	t_complex	z;
@@ -52,12 +43,11 @@ static void	handle_pixel(int x, int y, t_fractol *fractol)
 	double		temp;
 
 	i = 0;
-	z.real = (map(x, 2, -2, WIDTH) * fractol->zoom) + fractol->shift_x;
-	z.imgnry = (map(y, 2, -2, HIGHT) * fractol->zoom) + fractol->shift_y;
+	z.real = (map(x, 2, -2, WIDTH) * fractol->zoom);
+	z.imgnry = (map(y, 2, -2, HIGHT) * fractol->zoom);
 	mandel_julia(&z, &c, fractol);
 	while (i < fractol->iterations)
 	{
-		burning_ship(&z, fractol);
 		temp = (z.real * z.real) - (z.imgnry * z.imgnry) + c.real;
 		z.imgnry = (2.0 * z.real * z.imgnry) + c.imgnry;
 		z.real = temp;

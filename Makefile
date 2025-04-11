@@ -6,7 +6,7 @@
 #    By: mboutahi <mboutahi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/27 17:32:18 by mboutahi          #+#    #+#              #
-#    Updated: 2025/04/03 02:08:03 by mboutahi         ###   ########.fr        #
+#    Updated: 2025/04/05 13:27:45 by mboutahi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,14 @@ SRC = main.c utils.c fractol_init.c map_scale.c render.c events.c
 
 CC = cc
 
-CFLAGS= -Wall -Wextra -Werror -fsanitize=address -g
+CFLAGS= -Wall -Wextra -Werror
 
 OBJ = $(SRC:.c=.o)
 
 all: ${NAME}
 
 ${NAME}: ${OBJ}
-	${CC} ${CFLAGS} ${OBJ} -lmlx -lmlx -framework OpenGL -framework AppKit -o ${NAME}
+	${CC} ${CFLAGS} ${OBJ} -lmlx -framework OpenGL -framework AppKit -o ${NAME}
 
 %.o:%.c fractol.h
 	${CC} ${CFLAGS} -Imlx -c $< -o $@
@@ -33,3 +33,5 @@ clean:
 
 fclean: clean
 	rm -rf ${NAME}
+	
+re: fclean all
